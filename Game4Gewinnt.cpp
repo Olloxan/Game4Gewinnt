@@ -75,7 +75,7 @@ void Game4Gewinnt::ShiftPixelLeft()
 
 void Game4Gewinnt::ReleasePixel()
 {
-	for (int i = _MatchFieldHeight; i >= 0; i--)
+	for (int i = _MatchFieldHeight-1; i >= 0; i--)
 	{
 		if (_MatchField[_CurrentPixelPos + i*_MatchFieldWidth] == 0)
 		{			
