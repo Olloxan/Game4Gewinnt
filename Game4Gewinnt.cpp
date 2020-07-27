@@ -49,10 +49,11 @@ void Game4Gewinnt::ShiftPixelRight()
 {	
 	for (int i = _CurrentPixelPos; i < _MatchFieldWidth-1; i++)
 	{
+		int temp = _CurrentPixelPos;
 		if (_MatchField[i + 1] == 0)
 		{
 			_CurrentPixelPos++;
-			_MatchField[i] = 0;
+			_MatchField[temp] = 0;
 			_MatchField[i+1] = _CurrentPlayer;
 			break;
 		}		
@@ -61,12 +62,13 @@ void Game4Gewinnt::ShiftPixelRight()
 
 void Game4Gewinnt::ShiftPixelLeft()
 {
+	int temp = _CurrentPixelPos;
 	for (int i = _CurrentPixelPos; i > 0; i--)
 	{
 		if (_MatchField[i - 1] == 0)
 		{
 			_CurrentPixelPos--;
-			_MatchField[i] = 0;
+			_MatchField[temp] = 0;
 			_MatchField[i - 1] = _CurrentPlayer;
 			break;
 		}
