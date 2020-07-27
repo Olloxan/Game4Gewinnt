@@ -2,22 +2,12 @@
 
 Game4Gewinnt::Game4Gewinnt()
 {
-	_CurrentPlayer = 1;
-	_GameState = 0;
-	InitMatchField();
+	InitGame();
 }
 
 int* Game4Gewinnt::GetMatchField()
 {
 	return _MatchField;
-}
-
-void Game4Gewinnt::InitMatchField()
-{
-	for (int i = 0; i < _MatchFieldSize; i++)
-	{
-		_MatchField[i] = 0;
-	}
 }
 
 int Game4Gewinnt::BeginNextTurn()
@@ -95,7 +85,25 @@ void Game4Gewinnt::ReleasePixel()
 	_CurrentPlayer = _CurrentPlayer == 1 ? 2 : 1;
 }
 
+void Game4Gewinnt::Reset()
+{
+	InitGame();
+}
 //################# Private #################
+void Game4Gewinnt::InitGame()
+{
+	_CurrentPlayer = 1;
+	_GameState = 0;
+	InitMatchField();
+}
+
+void Game4Gewinnt::InitMatchField()
+{
+	for (int i = 0; i < _MatchFieldSize; i++)
+	{
+		_MatchField[i] = 0;
+	}
+}
 
 void Game4Gewinnt::CheckGameWon()
 {

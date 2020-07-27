@@ -29,6 +29,8 @@ public:
 	void ShiftPixelLeft();
 	void ReleasePixel();
 
+	void Reset();
+
 private:
 	
 	// internal Matchfield of size 8x8 as a singe 64 field Array
@@ -61,5 +63,6 @@ private:
 	bool IsNotRightBorder(int right);
 	bool IsSamePlayer(int left);
 
+	void InitGame();
 	void InitMatchField();
 };
