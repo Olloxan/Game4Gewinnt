@@ -47,31 +47,35 @@ int Game4Gewinnt::GetCurrentPlayer()
 
 void Game4Gewinnt::ShiftPixelRight()
 {	
+	int temp = _CurrentPixelPos;
+	int shift = 1;
 	for (int i = _CurrentPixelPos; i < _MatchFieldWidth-1; i++)
-	{
-		int temp = _CurrentPixelPos;
+	{		
 		if (_MatchField[i + 1] == 0)
 		{
-			_CurrentPixelPos++;
+			_CurrentPixelPos += (shift);
 			_MatchField[temp] = 0;
 			_MatchField[i+1] = _CurrentPlayer;
 			break;
 		}		
+		shift++;
 	}
 }
 
 void Game4Gewinnt::ShiftPixelLeft()
 {
 	int temp = _CurrentPixelPos;
+	int shift = 1;
 	for (int i = _CurrentPixelPos; i > 0; i--)
 	{
 		if (_MatchField[i - 1] == 0)
 		{
-			_CurrentPixelPos--;
+			_CurrentPixelPos -= (shift);
 			_MatchField[temp] = 0;
 			_MatchField[i - 1] = _CurrentPlayer;
 			break;
 		}
+		shift++;
 	}
 }
 
