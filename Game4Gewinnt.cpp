@@ -152,7 +152,7 @@ int Game4Gewinnt::CheckHorizontal()
 		left = IsNotLeftBorder(left) ? IsSamePlayer(left - 1) ? --left : left : left;
 		right = IsNotRightBorder(right) ? IsSamePlayer(right + 1) ? ++right : right : right;		
 	}
-	return right - left;
+	return right - left + 1;
 }
 
 int Game4Gewinnt::CheckVertical()
