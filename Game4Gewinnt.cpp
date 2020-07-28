@@ -22,7 +22,8 @@ int Game4Gewinnt::BeginNextTurn()
 			return _GameState;
 		}
 	}	
-	return 3;
+	_GameState = 3;
+	return _GameState;
 }
 
 int Game4Gewinnt::GetGameState()
