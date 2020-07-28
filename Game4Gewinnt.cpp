@@ -93,7 +93,7 @@ void Game4Gewinnt::Reset()
 
 void Game4Gewinnt::FillGame()
 {
-	for (size_t block = 0; block < 2; block++)
+	for (int block = 0; block < 2; block++)
 	{
 		FillBlock(3);
 	}
@@ -206,13 +206,13 @@ bool Game4Gewinnt::IsSamePlayer(int left)
 
 void Game4Gewinnt::FillBlock(int blockheight)
 {
-	for (size_t i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 	{
-		for (size_t j = 0; j < blockheight; j++)
+		for (int j = 0; j < blockheight; j++)
 		{
 			BeginNextTurn();
 
-			for (size_t k = 0; k < i; k++)
+			for (int k = 0; k < i; k++)
 			{
 				ShiftPixelRight();
 
