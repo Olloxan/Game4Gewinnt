@@ -31,6 +31,9 @@ public:
 
 	void Reset();
 
+	// Debug
+	void FillGame();
+
 private:
 	
 	// internal Matchfield of size 8x8 as a singe 64 field Array
@@ -65,4 +68,7 @@ private:
 
 	void InitGame();
 	void InitMatchField();
+
+	// Debug
+	void FillBlock(int blockHeight);
 };
