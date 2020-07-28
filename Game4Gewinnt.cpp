@@ -90,6 +90,18 @@ void Game4Gewinnt::Reset()
 {
 	InitGame();
 }
+
+void Game4Gewinnt::FillGame()
+{
+	for (size_t block = 0; block < 2; block++)
+	{
+		FillBlock(3);
+	}
+	FillBlock(1);	
+}
+
+
+
 //################# Private #################
 void Game4Gewinnt::InitGame()
 {
@@ -117,7 +129,7 @@ void Game4Gewinnt::CheckGameWon()
 	connectedPixels = connectedPixels > temp ? connectedPixels : temp;
 	temp = CheckDiagonal_RightDown();
 	connectedPixels = connectedPixels > temp ? connectedPixels : temp;
-	if (connectedPixels == 4)
+	if (connectedPixels >= 4)
 	{
 		_GameState = _CurrentPlayer;
 	}
@@ -192,4 +204,20 @@ bool Game4Gewinnt::IsSamePlayer(int left)
 	return _MatchField[left] == _CurrentPlayer;
 }
 
+void Game4Gewinnt::FillBlock(int blockheight)
+{
+	for (size_t i = 0; i < 8; i++)
+	{
+		for (size_t j = 0; j < blockheight; j++)
+		{
+			BeginNextTurn();
 
+			for (size_t k = 0; k < i; k++)
+			{
+				ShiftPixelRight();
+
+			}
+			ReleasePixel();			
+		}
+	}
+}
