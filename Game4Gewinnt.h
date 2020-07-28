@@ -16,6 +16,8 @@ public:
 
 	// returns current match field
 	int* GetMatchField();
+	int GetCurrentPixelPos();
+	int GetLastPixelPos();
 
 	// Set new Pixel in Toprow, if not possible
 	// Gamestate is draw
@@ -51,6 +53,7 @@ private:
 	// 3 - Draw
 	int _GameState;
 
+	int _LastPixelPos;
 	int _CurrentPixelPos;
 
 	void CheckGameWon();

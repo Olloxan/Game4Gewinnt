@@ -10,6 +10,16 @@ int* Game4Gewinnt::GetMatchField()
 	return _MatchField;
 }
 
+int Game4Gewinnt::GetCurrentPixelPos()
+{
+	return _CurrentPixelPos;
+}
+
+int Game4Gewinnt::GetLastPixelPos()
+{
+	return _LastPixelPos;
+}
+
 int Game4Gewinnt::BeginNextTurn()
 {
 	for (int i = 0; i < _MatchFieldWidth; i++)
@@ -72,6 +82,7 @@ void Game4Gewinnt::ShiftPixelLeft()
 
 void Game4Gewinnt::ReleasePixel()
 {
+	_LastPixelPos = _CurrentPixelPos;
 	for (int i = _MatchFieldHeight-1; i >= 0; i--)
 	{
 		if (_MatchField[_CurrentPixelPos + i*_MatchFieldWidth] == 0)
